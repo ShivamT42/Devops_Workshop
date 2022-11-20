@@ -42,11 +42,12 @@ jobs:
           path: ./build
       - name: Deploy to github pages
         uses: crazy-max/ghaction-github-pages@v3
-         with: 
+        with: 
           target_branch: gh-pages
           build_dir: ./build
-   stale: 
-    steps:
+  stale:
+   runs-on: ubuntu-latest
+   steps: 
       - uses: actions/stale@v6
         with:
           stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days.'
