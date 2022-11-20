@@ -26,7 +26,7 @@ jobs:
        run: npm run build
        
      - name: Upload our production ready build files
-       uses: actions/upload.artifact@v3
+       uses: actions/upload-artifact@v3
        with: 
         name: production
         path: ./build
@@ -45,6 +45,9 @@ jobs:
         with: 
           target_branch: gh-pages
           build_dir: ./build
+        env:
+          GITHUB_TOKEN: ${{github.token }}
+
   stale:
    runs-on: ubuntu-latest
    steps: 
